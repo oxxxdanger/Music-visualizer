@@ -366,3 +366,18 @@ body {
         letter-spacing: 4px;
     }
 }
+
+
+/* Dark Mode Theme */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+body.dark-mode .container, 
+body.dark-mode .card, 
+body.dark-mode input, 
+body.dark-mode button {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-color: #444;
+}
