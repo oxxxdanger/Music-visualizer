@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waveform Visualizer</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">wave</h1>
+            <div class="header-actions">
+                <button id="uploadBtn" class="upload-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    Upload
+                </button>
+                <input type="file" id="fileInput" accept=".mp3,.wav,.flac,.m4a" multiple hidden />
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Playlist -->
+            <aside class="playlist">
+                <h2 class="playlist-title">Library</h2>
+                <ul id="playlistContainer" class="playlist-items">
+                    <li class="empty-state">No tracks yet</li>
+                </ul>
+            </aside>
+
+            <!-- Visualizer -->
+            <section class="visualizer-section">
+                <div class="visualizer-wrapper">
+                    <canvas id="visualizerCanvas"></canvas>
+                    <div class="visualizer-overlay">
+                        <div class="track-info" id="trackInfo">
+                            <span class="track-name">No track playing</span>
+                            <span class="track-artist">Upload a song to begin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <button id="playBtn" class="control-btn" disabled>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5,3 19,12 5,21"/>
+                        </svg>
+                    </button>
+                    <div class="progress-container">
+                        <span class="time-display" id="currentTime">0:00</span>
+                        <input type="range" id="progressBar" class="progress-bar" min="0" max="100" value="0" disabled />
+                        <span class="time-display" id="totalTime">0:00</span>
+                    </div>
+                    <div class="volume-container">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11,5 6,9 2,9 2,15 6,15 11,19 11,5"/>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+                            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                        </svg>
+                        <input type="range" id="volumeControl" class="volume-slider" min="0" max="100" value="80" />
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
