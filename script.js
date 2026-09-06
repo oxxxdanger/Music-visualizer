@@ -415,3 +415,20 @@ function init() {
 }
 
 init();
+
+
+// Dark Mode Toggle
+const toggleButton = document.getElementById('theme-toggle');
+toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    toggleButton.textContent = isDark ? '☀️ Light Mode' : '🌙 Dark Mode';
+    // Save preference
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+});
+
+// Load saved preference on page load
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggleButton.textContent = '☀️ Light Mode';
+}
